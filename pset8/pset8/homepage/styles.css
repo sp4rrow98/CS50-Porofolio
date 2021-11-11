@@ -1,0 +1,23 @@
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: grey, black;
+}
+
+section {
+    background: white;
+}
+
+.container {
+    margin-top: 2px;
+}
+
+#title {
+    color: white;
+    text-transform: capitalize;
+    font-weight: 900;
+    margin-bottom: ;
+}
+
+p {
+    color: #0275d8;
+}

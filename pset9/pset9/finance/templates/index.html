@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    index
+{% endblock %}
+
+{% block main %}
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Name</th>
+                            <th>Shares</th>
+                            <th>Price</th>
+                            <th>TOTAL</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><b>{{ total | usd}}</b></td>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        <!-- TODO: Loop through the database entries to display them in this table -->
+
+                        {% for transaction in transactions if not transaction['quantity'] <= 0 %}
+                        <tr>
+                            <td>{{ transaction['symbol'] }}</td>
+                            <td>{{ transaction['stock'] }}</td>
+                            <td>{{ transaction['quantity'] }}</td>
+                            <td>{{ transaction['value'] | usd}}</td>
+                            <td>{{ transaction['total'] | usd}}</td>
+                        </tr>
+                        {% endfor %}
+                        <tr>
+                            <td>CASH</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>{{ userMoney[0]["cash"] | usd}}</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+{% endblock %}

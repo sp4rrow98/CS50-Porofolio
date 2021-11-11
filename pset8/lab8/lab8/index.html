@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = "green";
+                    document.querySelector('.fb').innerHTML = "Correct!";
+            });  
+            let incorrects = document.querySelectorAll('.incorrect');
+            for (let i = 0; i < incorrects.length; i++) {
+                incorrects[i].addEventListener('click', function() {
+                    incorrects[i].style.backgroundColor = "red";
+                    document.querySelector('.fb').innerHTML = "Incorrect!";
+                });
+            }
+            let freeButton = document.querySelector('.freeText');
+            freeButton.addEventListener('click', function() {
+                let text = document.querySelector('input');
+                if (text.value.toUpperCase() != "WORLD WIDE WEB") 
+                {
+                    document.querySelector('.fb1').innerHTML = "Incorrect!";
+                    text.style.backgroundColor = "red";
+                }
+                else
+                {
+                   document.querySelector('.fb1').innerHTML = "Correct!" ;
+                   text.style.backgroundColor = "green";
+                }
+            });
+            
+            
+        });
+
+ 
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    What is the Romanian capital?
+                </h3>
+                <button class="correct">
+                    Bucharest
+                </button>
+                <button class="incorrect">
+                    Budapest
+                </button>
+                <button class="incorrect">
+                    Berlin
+                </button>
+                <p class="fb"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>
+                    What does “www” stand for in a website browser?
+                </h3>
+                <!-- TODO: Add free response question here -->
+                <input type="text">
+                <button class="freeText">
+                    Submit
+                </button>
+                <p class="fb1"></p>
+
+            </div>
+
+        </div>
+    </body>
+</html>
